@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "corsheaders",
     "flight.apps.FlightConfig",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -117,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 MEDIA_URL = "assets/"
 MEDIA_ROOT = BASE_DIR / "assets/"
@@ -126,3 +128,17 @@ MEDIA_ROOT = BASE_DIR / "assets/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Hangi kök etki alanlarına erişime izin verileceğini belirtin (örneğin, React uygulamanızın kök etki alanı).
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Örnek: React uygulamanızın kök etki alanı
+    # Diğer izin verilen kök etki alanlarını ekleyebilirsiniz.
+]
+
+# Diğer CORS ayarları (isteğe bağlı):
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']  # İzin verilen HTTP yöntemleri
+CORS_ALLOW_HEADERS = ['*']  # İzin verilen başlıklar
+CORS_ALLOW_CREDENTIALS = True  # Kimlik doğrulama bilgilerinin (örneğin, çerezlerin) paylaşılmasına izin vermek için
+
+# Diğer CORS ayarlarını projenizin ihtiyacına göre yapılandırabilirsiniz.

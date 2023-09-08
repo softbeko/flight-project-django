@@ -14,4 +14,5 @@ urlpatterns = [
             }
         ),
     ),
+    path("logo/", views.LogoViewSet.as_view({"get": "list", "post": "create"})),
 ]

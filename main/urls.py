@@ -5,6 +5,7 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("flight/api/", include("flight.urls")),
+    path('api/', include('user_api.urls')),
 ]
 
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "flight.apps.FlightConfig",
+    "user_api.apps.UserApiConfig",
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,15 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
+}
+
+AUTH_USER_MODEL = "user_api.AppUser"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+    ),
 }
 
 
@@ -137,8 +147,15 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # Diğer CORS ayarları (isteğe bağlı):
-CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']  # İzin verilen HTTP yöntemleri
-CORS_ALLOW_HEADERS = ['*']  # İzin verilen başlıklar
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]  # İzin verilen HTTP yöntemleri
+CORS_ALLOW_HEADERS = ["*"]  # İzin verilen başlıklar
 CORS_ALLOW_CREDENTIALS = True  # Kimlik doğrulama bilgilerinin (örneğin, çerezlerin) paylaşılmasına izin vermek için
 
 # Diğer CORS ayarlarını projenizin ihtiyacına göre yapılandırabilirsiniz.

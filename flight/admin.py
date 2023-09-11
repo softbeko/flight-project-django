@@ -1,10 +1,9 @@
 from django.contrib import admin
 from .models import Campaing
 from .models import Logo
-
-class CampaingAdmin(admin.ModelAdmin):
-    pass
+from .models import Campaings
 
 
-admin.site.register(Campaing, CampaingAdmin)
+admin.site.register(Campaing)
 admin.site.register(Logo)
+admin.site.register(Campaings)

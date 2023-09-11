@@ -15,4 +15,7 @@ urlpatterns = [
         ),
     ),
     path("logo/", views.LogoViewSet.as_view({"get": "list", "post": "create"})),
+    path(
+        "campaigns/", views.CampaingsViewSet.as_view({"get": "list", "post": "create"})
+    ),
 ]

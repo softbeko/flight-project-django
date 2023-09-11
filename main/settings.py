@@ -88,7 +88,6 @@ DATABASES = {
 AUTH_USER_MODEL = "user_api.AppUser"
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
     ),
@@ -157,5 +156,6 @@ CORS_ALLOW_METHODS = [
 ]  # İzin verilen HTTP yöntemleri
 CORS_ALLOW_HEADERS = ["*"]  # İzin verilen başlıklar
 CORS_ALLOW_CREDENTIALS = True  # Kimlik doğrulama bilgilerinin (örneğin, çerezlerin) paylaşılmasına izin vermek için
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Diğer CORS ayarlarını projenizin ihtiyacına göre yapılandırabilirsiniz.

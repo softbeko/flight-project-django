@@ -1,5 +1,7 @@
 from rest_framework import viewsets, serializers
 from .models import Campaing
+from .models import Campaings
+from .seriallizer import CampaingsSerializer
 from .models import Logo
 
 
@@ -23,3 +25,8 @@ class LogoSerializer(serializers.ModelSerializer):
 class LogoViewSet(viewsets.ModelViewSet):
     queryset = Logo.objects.all()
     serializer_class = LogoSerializer
+
+
+class CampaingsViewSet(viewsets.ModelViewSet):
+    queryset = Campaings.objects.all()
+    serializer_class = CampaingsSerializer

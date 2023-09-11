@@ -10,9 +10,17 @@ class Logo(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=100)
     logo = models.ImageField(upload_to="images/logo")  # images/logo klasörüne yükler
-    searchbackground = models.ImageField(
-        upload_to="images/logo"
-    )  
+    searchbackground = models.ImageField(upload_to="images/logo")
+
+    def __str__(self):
+        return self.title
+
+
+class Campaings(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=100)
+    CampaingsPhoto = models.ImageField(upload_to="images/campaings")
+    CampaingsPhotoXl = models.ImageField(upload_to="images/campaings")
 
     def __str__(self):
         return self.title
